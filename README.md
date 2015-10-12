@@ -1,6 +1,15 @@
 # slipknot
 Slipknot is a program, rendered in Python, for Linux, that gives new names to commands that you use a lot. It has at its core the dream of ultimate user configurability, where the computer confirms to what you want, not the other way around.
 
+
+It does this by tapping into a user-created database that containing a list of equivalence statements. 
+
+An example: ff = firefox
+
+Slipknot, when run, presents a prompt similar to a bash shell. With the above example, if you were to type ff at the prompt and press enter, it would send the command firefox to the operating system to execute.
+
+If the user types something that doesn't show up in the database, it will pass the input to the system to execute. This means that you can treat Slipknot as a normal shell.
+
 # install
 
 To install this program, do the following things:
