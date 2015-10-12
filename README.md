@@ -7,7 +7,7 @@ To install this program, do the following things:
 
 
 1. Make sure you have Python 2.7 installed, along with the standard libraries subprocess and os.
-2. Clone this repo into some other wise empty directory.
+2. Clone this repo into some otherwise empty directory.
 3. Edit /etc/environment, make a new environment variable named SLIPKNOT_HOME, and set it equal to the path of the folder you just cloned this repo into. This must be precise.
 4. Enjoy!
 
