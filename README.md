@@ -21,6 +21,8 @@ To install this program, do the following things:
 4. Run the file slipknot, or run the file slipknot.py in Python.
 5. Enjoy!
 
+I'm told that it will run, unmodified, on Unix systems (tested on Mac OS X 10.5). However, I haven't personally seen it in action, so proceed with caution. The worst thing that can happen is that it fails with a callback or it executes some command that you didn't mean it to.
+
 
 I did make a launcher that you can move around to wherever you want. It's in here just as slipknot, and is compiled from slipknot.cpp. This launcher is mobile, so you can put it in your executable path and use it as you would a normal executable.
 
