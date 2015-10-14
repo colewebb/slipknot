@@ -2,7 +2,7 @@
 Slipknot is a program, rendered in Python, for Linux, that gives new names to commands that you use a lot. It has at its core the dream of ultimate user configurability, where the computer conforms to what you want, not the other way around.
 
 
-It does this by tapping into a user-created database that containing a list of equivalence statements. 
+It does this by tapping into a user-created database that contains a list of equivalence statements. 
 
 An example: ff = firefox
 
