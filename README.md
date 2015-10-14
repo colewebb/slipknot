@@ -24,7 +24,7 @@ To install this program, do the following things:
 I'm told that it will run, unmodified, on Unix systems (tested on Mac OS X 10.5). However, I haven't personally seen it in action, so proceed with caution. The worst thing that can happen is that it fails with a callback or it executes some command that you didn't mean it to. 
 
 
-If it does fail, please copy and paste the entire callback into an Issue. I really appreciate bug reporting. If you feel like fixing it, cool. Make a fork, fix it, and put in a pull request. You know the drilll
+If it does fail, please copy and paste the entire callback into an Issue. I really appreciate bug reporting. If you feel like fixing it, cool. Make a fork, fix it, and put in a pull request. You know the drill.
 
 
 I did make a launcher that you can move around to wherever you want. It's in here just as slipknot, and is compiled from slipknot.cpp. This launcher is mobile, so you can put it in your executable path and use it as you would a normal executable.
