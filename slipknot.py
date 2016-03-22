@@ -19,7 +19,7 @@ try:
 except:
 	print("Your machine is missing one of the following libraries:\n\n    1) os\n    2) subprocess\n\nPlease make sure these libraries are installed, and try again.")
 	exit(1)
-subprocess.call("/home/rebooted/Scripts/slipknot/startup.sh", shell=True)
+subprocess.call(os.getenv("SLIPKNOT_HOME")+"/startup.sh", shell=True)
 try:
 	database=open(os.getenv("SLIPKNOT_HOME") + "/database.txt")
 	database.close
