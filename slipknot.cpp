@@ -7,5 +7,5 @@
 using namespace std;
 
 int main() {
-	system("python $SLIPKNOT_HOME/slipknot.py");
+	system("xfce4-terminal -x python $SLIPKNOT_HOME/slipknot.py");
 }

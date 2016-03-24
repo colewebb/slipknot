@@ -37,6 +37,7 @@ if main_database_status=="txt":
 	for line in database:
 		database_count=database_count+1
 database_location=os.getenv("SLIPKNOT_HOME") + "/default.db"
+prompt="slipknot:default >>> "
 def find_in_text(search,database):
 	found=False
 	database=open(database_location)
@@ -55,7 +56,6 @@ def find_in_text(search,database):
 	if found==False:
 		execute="data not found"
 	return execute
-prompt="slipknot:default >>> "
 while True:
 	input=raw_input(prompt)
 	if input=="x":
@@ -78,7 +78,11 @@ while True:
 		prompt="slipknot:default >>> "
 	elif input=="d":
 		database_location=os.getenv("SLIPKNOT_HOME") + "/default.db"
-		prompt="slipknot:default >>> "
+		prompt="slipknot:default >>> " 
+	elif input=="help":
+		subprocess.call("nano "+database_location,shell=True)
+	elif input=="edit-db":
+		subprocess.call("gedit "+database_location,shell=True)
 	else:
 		execute = find_in_text(input,database_location)
 		if execute.endswith(".db"):
