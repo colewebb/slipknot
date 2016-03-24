@@ -58,33 +58,20 @@ def find_in_text(search,database):
 	return execute
 while True:
 	input=raw_input(prompt)
-	if input=="x":
+	execute=find_in_text(input,database_location)
+	if execute=="exit":
 		exit()
-	elif input=="exit":
-		exit()
-	elif input=="close":
-		exit()
-	elif input=="clear":
+	elif input=="reset":
 		subprocess.call("python " + os.getenv("SLIPKNOT_HOME") + "/slipknot.py", shell=True)
 		exit()
-	elif input=="c":
-		subprocess.call("xfce4-terminal -x python " + os.getenv("SLIPKNOT_HOME") + "/slipknot.py", shell=True)
-		exit()
-	elif input=="default":
+	elif execute=="default":
 		database_location=os.getenv("SLIPKNOT_HOME") + "/default.db"
 		prompt="slipknot:default >>> "
-	elif input=="def":
-		database_location=os.getenv("SLIPKNOT_HOME") + "/default.db"
-		prompt="slipknot:default >>> "
-	elif input=="d":
-		database_location=os.getenv("SLIPKNOT_HOME") + "/default.db"
-		prompt="slipknot:default >>> " 
-	elif input=="help":
+	elif execute=="help":
 		subprocess.call("nano "+database_location,shell=True)
-	elif input=="edit-db":
+	elif execute=="edit-db":
 		subprocess.call("gedit "+database_location,shell=True)
 	else:
-		execute = find_in_text(input,database_location)
 		if execute.endswith(".db"):
 			try:
 				new_database=open(execute)

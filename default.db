@@ -1,1 +1,10 @@
-
+x = exit
+exit = exit
+close = exit
+clear = reset
+c = reset
+default = default
+def = default
+d = default
+help = help
+edit-db = edit-db
