@@ -21,7 +21,7 @@ except:
 	exit(1)
 subprocess.call(os.getenv("SLIPKNOT_HOME")+"/startup.sh", shell=True)
 try:
-	database=open(os.getenv("SLIPKNOT_HOME") + "/database.txt")
+	database=open(os.getenv("SLIPKNOT_HOME") + "/default.db")
 	database.close
 	main_database_exists=True
 	main_database_status="txt"
@@ -30,19 +30,16 @@ except:
 	main_database_status=""
 database_count=0
 if main_database_exists==False:
-	print("\nNo databases where found. Please make sure you have\na database named database.txt on the root of the\nslipknot folder.")
+	print("\nNo databases where found. Please make sure you have\na database named default.db on the root of the\nslipknot folder.")
 	exit(1)
 found=False
 if main_database_status=="txt":
 	for line in database:
 		database_count=database_count+1
-if input=="exit":
-	exit()
-elif input=="x":
-	exit()
-def find_in_text(search):
+database_location=os.getenv("SLIPKNOT_HOME") + "/default.db"
+def find_in_text(search,database):
 	found=False
-	database=open(os.getenv("SLIPKNOT_HOME") + "/database.txt")
+	database=open(database_location)
 	search=search + " = "
 	for line in database:
 		if found==False:
@@ -58,8 +55,9 @@ def find_in_text(search):
 	if found==False:
 		execute="data not found"
 	return execute
+prompt="slipknot:default >>> "
 while True:
-	input=raw_input("slipknot>"+":"+os.getenv("PWD")+" >>> ")
+	input=raw_input(prompt)
 	if input=="x":
 		exit()
 	elif input=="exit":
@@ -72,9 +70,27 @@ while True:
 	elif input=="c":
 		subprocess.call("xfce4-terminal -x python " + os.getenv("SLIPKNOT_HOME") + "/slipknot.py", shell=True)
 		exit()
+	elif input=="default":
+		database_location=os.getenv("SLIPKNOT_HOME") + "/default.db"
+		prompt="slipknot:default >>> "
+	elif input=="def":
+		database_location=os.getenv("SLIPKNOT_HOME") + "/default.db"
+		prompt="slipknot:default >>> "
+	elif input=="d":
+		database_location=os.getenv("SLIPKNOT_HOME") + "/default.db"
+		prompt="slipknot:default >>> "
 	else:
-		execute = find_in_text(input)
-		if execute == "data not found":
+		execute = find_in_text(input,database_location)
+		if execute.endswith(".db"):
+			try:
+				new_database=open(execute)
+				new_database.close
+			except:
+				print("Database not found, resetting to default")
+				pass
+			database_location=execute
+			prompt="slipknot:"+database_location+" >>> "
+		elif execute == "data not found":
 			subprocess.call(input, shell=True)
 		else:
 			subprocess.call(execute, shell=True)
