@@ -23,20 +23,17 @@ subprocess.call(os.getenv("SLIPKNOT_HOME")+"/startup.sh", shell=True)
 try:
 	database=open(os.getenv("SLIPKNOT_HOME") + "/default.db")
 	database.close
+	config_database=open(os.getenv("SLIPKNOT_HOME")+"/config.db")
+	config_database.close
 	main_database_exists=True
-	main_database_status="txt"
 except:
 	main_database_exists=False
-	main_database_status=""
-database_count=0
 if main_database_exists==False:
 	print("\nNo databases where found. Please make sure you have\na database named default.db on the root of the\nslipknot folder.")
 	exit(1)
 found=False
-if main_database_status=="txt":
-	for line in database:
-		database_count=database_count+1
 database_location=os.getenv("SLIPKNOT_HOME") + "/default.db"
+config_location=os.getenv("SLIPKNOT_HOME") + "/config.db"
 prompt="slipknot:default >>> "
 def find_in_text(search,database):
 	found=False
@@ -58,30 +55,34 @@ def find_in_text(search,database):
 	return execute
 while True:
 	input=raw_input(prompt)
-	execute=find_in_text(input,database_location)
-	if execute=="exit":
-		exit()
-	elif input=="reset":
-		subprocess.call("python " + os.getenv("SLIPKNOT_HOME") + "/slipknot.py", shell=True)
-		exit()
-	elif execute=="default":
-		database_location=os.getenv("SLIPKNOT_HOME") + "/default.db"
-		prompt="slipknot:default >>> "
-	elif execute=="help":
-		subprocess.call("nano "+database_location,shell=True)
-	elif execute=="edit-db":
-		subprocess.call("gedit "+database_location,shell=True)
-	else:
-		if execute.endswith(".db"):
-			try:
-				new_database=open(execute)
-				new_database.close
-			except:
-				print("Database not found, resetting to default")
-				pass
-			database_location=execute
-			prompt="slipknot:"+database_location+" >>> "
-		elif execute == "data not found":
-			subprocess.call(input, shell=True)
+	input = input.split(" ",len(input))
+	for input in input:
+		execute=find_in_text(input,database_location)
+		if execute=="data not found":
+			execute=find_in_text(input,database_location)
+		elif execute=="exit":
+			exit()
+		elif input=="reset":
+			subprocess.call("python " + os.getenv("SLIPKNOT_HOME") + "/slipknot.py", shell=True)
+			exit()
+		elif execute=="default":
+			database_location=os.getenv("SLIPKNOT_HOME") + "/default.db"
+			prompt="slipknot:default >>> "
+		elif execute=="help":
+			subprocess.call("nano "+database_location,shell=True)
+		elif execute=="edit-db":
+			subprocess.call("gedit "+database_location,shell=True)
 		else:
-			subprocess.call(execute, shell=True)
+			if execute.endswith(".db"):
+				try:
+					new_database=open(execute)
+					new_database.close
+				except:
+					print("Database not found, resetting to default")
+					pass
+				database_location=execute
+				prompt="slipknot:"+database_location+" >>> "
+			elif execute == "data not found":
+				subprocess.call(input, shell=True)
+			else:
+				subprocess.call(execute, shell=True)
