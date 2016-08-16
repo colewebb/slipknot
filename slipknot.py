@@ -23,8 +23,6 @@ subprocess.call(os.getenv("SLIPKNOT_HOME")+"/startup.sh", shell=True)
 try:
 	database=open(os.getenv("SLIPKNOT_HOME") + "/default.db")
 	database.close
-	config_database=open(os.getenv("SLIPKNOT_HOME")+"/config.db")
-	config_database.close
 	main_database_exists=True
 except:
 	main_database_exists=False
