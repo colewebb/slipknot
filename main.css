@@ -9,10 +9,12 @@
     font-weight: normal;
 }
 body {
-  background-image: url(new.png);
+  background-image: url(images/new.png);
+  background-color: black;
 }
 p {
   color: white;
+  padding: 0px 10% 0px 5px;
 }
 a:link {
   color: white;
@@ -31,6 +33,10 @@ p.sans-serif-main {
 h3 {
   color: white;
 }
+h4 {
+  color: white;
+  font-family: sans-serif;
+}
 .footer {
   position: fixed;
   text-align: left;
@@ -38,5 +44,5 @@ h3 {
   width: 100%;
   font-family: sans-serif;
   color: white;
-  font-size: 13px; 
+  font-size: 13px;
 }
