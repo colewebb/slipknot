@@ -16,12 +16,14 @@ p {
 }
 a:link {
   color: white;
+  text-decoration: none;
 }
 a:visited {
-  color: grey;
+  color: #b3b3b3;
+  text-decoration: none;
 }
 a:hover {
-  color: #1569C7;
+  color: #87CEFA;
 }
 p.sans-serif-main {
   font-family: sans-serif;
