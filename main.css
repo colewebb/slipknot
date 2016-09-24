@@ -1,4 +1,28 @@
-@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+@font-face {
+    font-family: 'ubuntu-bold';
+    src: url('fonts/Ubuntu-Bold.ttf');
+    font-weight: bold;
+}
+@font-face {
+    font-family: 'ubuntu';
+    src: url('fonts/Ubuntu-Regular');
+    font-weight: normal;
+}
+body {
+  background-color: black;
+}
 p {
-  font-family: 'ubuntu', sans-serif;
+  color: white;
+}
+a:link {
+  color: white;
+}
+a:visited {
+  color: grey;
+}
+a:hover {
+  color: #1569C7;
+}
+p.sans-serif-main {
+  font-family: sans-serif;
 }
