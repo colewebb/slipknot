@@ -11,6 +11,7 @@
 body {
   background-image: url(images/new.png);
   background-color: black;
+  background-attachment: fixed;
 }
 p {
   color: white;
@@ -30,11 +31,13 @@ a:hover {
 p.sans-serif-main {
   font-family: sans-serif;
 }
-h3 {
+h3.header {
   color: white;
 }
 h4 {
   color: white;
+}
+h4.sans-serif-main {
   font-family: sans-serif;
 }
 .footer {
@@ -45,4 +48,20 @@ h4 {
   font-family: sans-serif;
   color: white;
   font-size: 13px;
+}
+code {
+  background-color: #BDBDBD;
+  font-size: 16px;
+  color: black;
+}
+table, th, td, tr {
+  color: white;
+  background-color: inherit;
+  font-family: sans-serif;
+  border: 1px solid white;
+  border-collapse: collapse;
+  padding: 5px;
+}
+table {
+  margin: 0px 10% 0px 5px;
 }

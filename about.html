@@ -7,14 +7,14 @@
   <h1>
     <a href="index.html">slipknot</a>
   </h1>
-  <h3>
+  <h3 class="header">
     <a href="about.html">about</a> |
     <a href="install.html">install</a> |
     <a href="docs.html">documentation</a> |
     <a href="databases.html">user-created databases</a> |
     <a href="credits.html">credits</a>
   </h3>
-  <h4>
+  <h4 class="sans-serif-main">
     What is Slipknot?
   </h4>
   <p class="sans-serif-main">
@@ -23,10 +23,80 @@
   <p>
     <img src="images/clean-screenshot.png">
   </p>
-  <p>
-
+  <p class="sans-serif-main">
+    Slipknot is a command line interpreter, built for Linux and macOS.
+    Its job is to reduce the number of keystrokes needed to perform
+    complicated tasks. It performs this task with the use of a database,
+    which contains a set of equivalence statements or keys. A typical key
+    would look something like this:
   </p>
-  <p class="footer">
+  <code>
+    update = sudo apt-get update && sudo apt-get upgrade
+  </code>
+  <p class="sans-serif-main">
+    With this key in your database, you could type <code>update</code> and
+    <code>sudo apt-get update && sudo apt-get upgrade</code> would execute.
+  </p>
+  <p class="sans-serif-main">
+    Anyway, that's the basic gist. This software has some quirks, most of them
+    intentional, but that's covered in the Documentation part of this site.
+    I've added some other small scripts to this that I've written to do little
+    things; these are found in the <code>slipknot/apps</code> folder. They are
+    summarized here:
+  </p>
+  <table>
+    <tr>
+      <td>Script</td>
+      <td>Use</td>
+    </tr>
+    <tr>
+      <td>get.py</td>
+      <td>Installs an Ubuntu/Debian package and runs it. Assumes yes to all prompts
+       -- use this one carefully.</td>
+    </tr>
+    <tr>
+      <td>kill.py</td>
+      <td>Using apt-get, this script stops a running program, uninstalls it,
+        uninstalls any dependencies that came with it (and aren't being used
+        for something else) and purges the files. Also assumes yes to all prompts
+         -- use this one carefully too.</td>
+    </tr>
+    <tr>
+      <td>search/google.py</td>
+      <td>Searches Google.</td>
+    </tr>
+    <tr>
+      <td>search/reddit.py</td>
+      <td>Searches Reddit.</td>
+    </tr>
+    <tr>
+      <td>search/stack_overflow.py</td>
+      <td>Searches Stack Overflow</td>
+    </tr>
+    <tr>
+      <td>search/template.py</td>
+      <td>A template for making other search tools. (If you do add other tools,
+        would you mind sending them to me? Fork this and put in a pull request.)</td>
+    </tr>
+    <tr>
+      <td>search/twitter.py</td>
+      <td>Searches Twitter.</td>
+    </tr>
+    <tr>
+      <td>search/whitepages</td>
+      <td>Searches the WhitePages reverse phone directory for a given phone number.</td>
+    </tr>
+    <tr>
+      <td>search/wikipedia.py</td>
+      <td>Searches Wikipedia.</td>
+    </tr>
+  </table>
+  <p class="sans-serif-main">
+    I hope you find these tools useful. I welcome feedback and constructive criticism.
+    If you find something that doesn't work, I appreciate bug reports. Thank you!
+  </p>
+<!--  <p class="footer">
     You found it here first. Enjoy this software. ~ CW
   </p>
+-->
 </body>
