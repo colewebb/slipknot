@@ -31,3 +31,12 @@ p.sans-serif-main {
 h3 {
   color: white;
 }
+.footer {
+  position: fixed;
+  text-align: left;
+  bottom: 0px;
+  width: 100%;
+  font-family: sans-serif;
+  color: white;
+  font-size: 13px; 
+}
