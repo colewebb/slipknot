@@ -9,7 +9,7 @@
     font-weight: normal;
 }
 body {
-  background-color: black;
+  background-image: url(new.png);
 }
 p {
   color: white;
@@ -25,4 +25,7 @@ a:hover {
 }
 p.sans-serif-main {
   font-family: sans-serif;
+}
+h3 {
+  color: white;
 }
