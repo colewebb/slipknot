@@ -13,6 +13,143 @@
     <a href="install.html">install</a> |
     <a href="docs.html">documentation</a> |
     <a href="databases.html">user-created databases</a> |
-    <a href="credits.html">credits</a>
+    <a href="credits.html">credits</a> |
+    <a href="screenshots.html">screenshots</a>
   </h3>
+  <p class="sans-serif-main">
+    <h4>Table of Contents</h4>
+    <ol>
+      <li><a href="docs.html#getting-started">Getting started</a></li>
+      <li><a href="docs.html#nested-db">Using nested databases</a></li>
+      <li><a href="docs.html#reserved-commands">Reserved commands</a></li>
+      <li><a href="docs.html#reporting-issues">Reporting issues</a></li>
+    </ol>
+  </p>
+  <h4><a name="getting-started">Getting started</a></h4>
+  <p class="sans-serif-main">
+    This is the part where I get into the nitty-gritties of how this software works.
+    If you want to know how to use this software, you're in the right place. If you're
+    looking for how to install it, go <a href="install.html">here</a> (or click
+    the install tab, at the top of the page).
+  </p>
+  <p class="sans-serif-main">
+    Let's get started.
+  </p>
+  <p class="sans-serif-main">
+    You've seen this image before, if you've been on the About page. If you haven't
+    read the About page yet, I recommend you start there.
+  </p>
+  <img src="images/clean-screenshot.png">
+  <p class="sans-serif-main">
+    The Slipknot shell accepts the user's input on the command line. It then
+    searches through a database, looking for keys that match the user's input.
+    Finding a key, it will execute the other half of the key. Not finding a
+    key, it will send the input, unchanged, to the operating system for execution.
+  </p>
+  <p class="sans-serif-main">
+    It should be noted that while you can make more than one key link to the same command,
+    but you can't make one key link to more than one command. Put another way:
+    <code><br>x = exit<br>exit = exit<br>close = exit<br></code>
+    <p class="sans-serif-main">works, but</p>
+    <code>x = exit<br>x = rmdir<br></code>
+    <p class="sans-serif-main">doesn't work.</p>
+  </p>
+  <h4><a name="nested-db">Making Multiple Databases</a></h4>
+  <p class="sans-serif-main">
+    Here's where things get fun, and here's the thing that sets this setup apart
+    from other command line aliasing methods: you're not limited to one database.
+  </p>
+  <p class="sans-serif-main">
+    Let me say it again for the peeople in the back: <b>you're not limited to one
+      database</b>.
+  </p>
+  <p class="sans-serif-main">
+    So, for the sake of explanation: you have a set of keys that you use together
+    frequently. A common organizational scheme would be to group them together, using
+    the same prefix with each, like this:
+  </p>
+  <ul>
+    <li><code>fu-bar</code></li>
+    <li><code>fu-snob</code></li>
+    <li><code>fu-one</code></li>
+    <li><code>fu-donuts</code></li>
+  </ul>
+  <p class="sans-serif-main">
+    You get the idea.
+  </p>
+  <p class="sans-serif-main">
+    But this is a pain. Slipknot changes this. You can add a database called <code>fu</code>,
+    switch into it, and then use the keys <code>bar</code>, <code>snob</code>, <code>one</code>
+     and <code>donuts</code> (which are defined in the context of the database <code>fu</code>). To do
+    this, you would add a key to your default database that connects to a database
+    file instead of a command. This database file must exist already, and it must
+    have a file extension of <code>.db</code>. Using this key results in you being
+    switched into the other database, which in turn opens up the keys in that database.
+    It does turn off the keys from the first database, which means that the same key
+    can mean the different things in different databases. This can get confusing very quickly.
+    Being careful is advised.
+  </p>
+  <p class="sans-serif-main">
+    Is this making any sense? No? TL;DR: you can nest databases. Add a key to one database,
+    containing the location of the other database. Put in the name of the key the same as any other key.
+    This will switch you into the new database.
+  </p>
+  <h4><a name="reserved-commands">Reserved commands</a></h4>
+  <p class="sans-serif-main">
+    There are a few commands that are reserved for the use of Slipknot. They are:
+    <ul>
+      <li>default</li>
+      <li>help</li>
+      <li>edit-db</li>
+      <li>exit</li>
+      <li>reset</li>
+    </ul>
+  </p>
+  <p class="sans-serif-main">
+    These commands are meant to be used. In fact, they provide critical functionality.
+    These commands are internal. Perhaps this will be be easier to explain if I put my
+    previous list into a table.
+  </p>
+  <table>
+    <tr>
+      <th>command</th>
+      <th>purpose</th>
+    </tr>
+    <tr>
+      <td>default</td>
+      <td>returns the Slipknot session to the default database</td>
+    </tr>
+    <tr>
+      <td>help</td>
+      <td>prints the current database to the screen, so that you can find that key you need</td>
+    </tr>
+    <tr>
+      <td>edit-db</td>
+      <td>wizard for adding a key to the database</td>
+    </tr>
+    <tr>
+      <td>exit</td>
+      <td>closes the session</td>
+    </tr>
+    <tr>
+      <td>reset</td>
+      <td>resets the session, clearing the screen</td>
+    </tr>
+  </table>
+  <p class="sans-serif-main">
+    I highly recommend adding all of these keys to all of your databases, in some form
+    or another. At this point, there is no overarching configuration file that will
+    make a set of keys work in all databases. You will have to add  each of the commands
+    that you would like to use in a given database. I'm working on a fix.
+  </p>
+  <h4><a name="reporting-issues">Reporting issues</a></h4>
+  <p class="sans-serif-main">
+    If you run into an issue, left me know. My email address is <a class="underline" href="mailto:cole.webb@outlook.com?subject=slipknot-bug">
+      cole.webb@outlook.com</a>. You could also file an issue on GitHub, or you could
+    fork it, fix the problem, and then submit a pull request. If you have the skills
+    and the time, I really would appreciate the help. Thank you!
+  </p>
+  <p class="sans-serif-main">
+    ~ Cole Webb, September 25th, 2016
+  </p>
 </body>

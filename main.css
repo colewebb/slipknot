@@ -28,6 +28,9 @@ a:visited {
 a:hover {
   color: #87CEFA;
 }
+a.underline {
+  text-decoration: underline;
+}
 p.sans-serif-main {
   font-family: sans-serif;
 }
@@ -35,7 +38,7 @@ h3.header {
   color: white;
 }
 h4 {
-  color: white;
+  color: #77dd77;
 }
 h4.sans-serif-main {
   font-family: sans-serif;
@@ -61,7 +64,20 @@ table, th, td, tr {
   border: 1px solid white;
   border-collapse: collapse;
   padding: 5px;
+  text-align: left;
 }
 table {
-  margin: 0px 10% 0px 5px;
+  margin-right: 10%;
+  margin-right: 5px;
+}
+b {
+  text-decoration: bold;
+}
+ul {
+  color: white;
+  font-family: sans-serif;
+}
+ol {
+  color: white;
+  font-family: sans-serif;
 }
