@@ -8,3 +8,7 @@ def = default
 d = default
 help = help
 edit-db = edit-db
+get = python2.7 /home/rebooted/Scripts/slipknot/apps/get.py
+kill = python2.7 /home/rebooted/Scripts/slipknot/apps/kill.py
+ff = /home/rebooted/Scripts/slipknot/ff.db
+update = sudo apt-get update && sudo apt-get upgrade
