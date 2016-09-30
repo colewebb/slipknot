@@ -21,6 +21,10 @@ except:
 	exit(1)
 subprocess.call(os.getenv("SLIPKNOT_HOME")+"/startup.sh", shell=True)
 try:
+	from pythonzenity import Entry
+except:
+	print("You appear to be missing the python-zenity library. If/n/nyou would link to use a GUI with Slipknot, please install the python-zenity library.")
+try:
 	database=open(os.getenv("SLIPKNOT_HOME") + "/default.db")
 	database.close
 	main_database_exists=True
@@ -52,7 +56,7 @@ def find_in_text(search,database):
 		execute="data not found"
 	return execute
 while True:
-	input=raw_input(prompt)
+	input=Entry(title=prompt, text="Welcome to Slipknot", width=800)
 	input = input.split(" ",len(input))
 	for input in input:
 		execute=find_in_text(input,database_location)
